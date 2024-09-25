@@ -5,8 +5,14 @@
     <!-- 인터넷 사용 권한 설정-->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- 와이파이나 모바일 데이터(또는 둘 다)를 사용해 기기의 위치에 접근하는 권한 (도시에서 1블록 정도의 오차 수준) -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- 위성, 와이파이, 모바일 데이터 등 이용할 수 있는 위치 제공자를 사용해 최대한 정확한 위치에 접근하는 권한 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 안드로이드 10(API 레벨 29) 이상에서 백그라운드 상태에서 위치에 접근하는 권한 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 
     <application
         android:allowBackup="true"
