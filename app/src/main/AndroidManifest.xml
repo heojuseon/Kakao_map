@@ -12,7 +12,8 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- 안드로이드 10(API 레벨 29) 이상에서 백그라운드 상태에서 위치에 접근하는 권한 -->
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <!--  하지만 카카오맵이나 일반적인 지도 앱은 백그라운드 동작을 추천하지 않는다  -->
+<!--    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>-->
 
     <application
         android:allowBackup="true"
