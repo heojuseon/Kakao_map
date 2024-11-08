@@ -2,40 +2,27 @@ package com.study.kakao_map.view
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import android.graphics.Color
-import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.location.LocationManagerCompat.getCurrentLocation
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationListener
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.Task
+import androidx.fragment.app.Fragment
 import com.kakao.vectormap.KakaoMap
 import com.kakao.vectormap.KakaoMapReadyCallback
 import com.kakao.vectormap.KakaoMapSdk
 import com.kakao.vectormap.LatLng
 import com.kakao.vectormap.MapLifeCycleCallback
 import com.kakao.vectormap.MapView
-import com.kakao.vectormap.MapViewInfo
 import com.kakao.vectormap.animation.Interpolation
 import com.kakao.vectormap.camera.CameraUpdateFactory
 import com.kakao.vectormap.label.Label
 import com.kakao.vectormap.label.LabelOptions
 import com.kakao.vectormap.label.LabelStyle
 import com.kakao.vectormap.label.LabelStyles
-import com.kakao.vectormap.label.TrackingManager
 import com.kakao.vectormap.label.TransformMethod
 import com.kakao.vectormap.shape.DotPoints
 import com.kakao.vectormap.shape.Polygon
@@ -49,9 +36,6 @@ import com.study.kakao_map.R
 import com.study.kakao_map.config.KAKAO_MAP_KEY
 import com.study.kakao_map.config.LocationHelper
 import com.study.kakao_map.databinding.FragmentMapBinding
-import java.lang.Exception
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
 class MapFragment : Fragment() {
     private lateinit var binding: FragmentMapBinding
@@ -151,6 +135,11 @@ class MapFragment : Fragment() {
                             )
                             // headingLabel이 locationLabel과 함께 움직이도록 설정한다.
                             locationLabel?.addSharePosition(headingLabel)
+                            LocationHelper.deviceOrientation {
+                                headingLabel?.rotateTo(Math.toRadians(it.toDouble()).toFloat())
+                            }
+
+
                             /**
                              * 반지름 1 짜리 Polygon
                              */
