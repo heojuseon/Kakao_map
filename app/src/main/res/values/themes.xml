@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.Kakao_map" parent="Base.Theme.Kakao_map" />
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/Theme.Kakao_map</item>
+
+    <!-- api 31+ (12 이상) -->
+<!--        <item name="windowSplashScreenBackground">@color/black</item>-->
+<!--        <item name="android:windowSplashScreenAnimatedIcon"></item>-->
+    </style>
 </resources>
